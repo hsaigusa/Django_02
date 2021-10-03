@@ -17,6 +17,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+MEDIA_URL = "/media/"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -150,7 +152,15 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 )
+
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, "frontend/")
+]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
