@@ -42,8 +42,7 @@ $(document).on("click", ".js-toggle-modal", function(e){
         return false
     }
 
-
-    $btn.prop("disabled", true).text("Posting!")
+$btn.prop("disabled", true).text("Posting!")
     $.ajax({
         type: 'POST',
         url: $(".js-post-text").data("post-url"),
@@ -61,4 +60,9 @@ $(document).on("click", ".js-toggle-modal", function(e){
             $btn.prop("disabled", false).text("Error")
         }
     })
+})
+
+.on("click", ".js-follow", function(e) {
+    e.preventDefault();
+    console.log("Clicked")
 })
